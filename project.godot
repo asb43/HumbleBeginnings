@@ -1,0 +1,41 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="HumbleBeginnings v.2"
+run/main_scene="res://Levels/level_1.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+InteractionSystem="*res://addons/interaction_system/interaction_system.gd"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/cyclops_level_builder/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/interaction_system/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=3
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_taa=true
