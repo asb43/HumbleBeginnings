@@ -23,6 +23,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250379, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001688, 0.0186205, 0.000359058)
 shape = SubResource("BoxShape3D_kqdmm")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
@@ -35,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 0.664357, 0.747415, 0, -0.747415, 0.664357, 
 shadow_enabled = true
 
 [node name="bot_boi" parent="." instance=ExtResource("2_wrf4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84524, 3.79243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69855, 3.68198)
 
 [node name="Blocks" type="Node3D" parent="."]
 
