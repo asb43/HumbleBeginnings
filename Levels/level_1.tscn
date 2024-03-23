@@ -35,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 0.664357, 0.747415, 0, -0.747415, 0.664357, 
 shadow_enabled = true
 
 [node name="bot_boi" parent="." instance=ExtResource("2_wrf4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01423, 4.29243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84524, 3.79243)
 
 [node name="Blocks" type="Node3D" parent="."]
 
