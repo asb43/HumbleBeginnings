@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://du6t2foel2hqe"]
+[gd_scene load_steps=6 format=3 uid="uid://du6t2foel2hqe"]
+
+[ext_resource type="Script" path="res://godot-interaction-system-65c131c899ac398c76a8eded360f04fe8eb9ef5f/addons/interaction_system/systems/interaction/interactable/interactable_3d.gd" id="1_3eti3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1e6qh"]
 
@@ -10,6 +12,8 @@ roughness = 0.75
 [sub_resource type="BoxMesh" id="BoxMesh_5to17"]
 material = SubResource("StandardMaterial3D_v3wjg")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qtaj4"]
+
 [node name="Block" type="RigidBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -18,3 +22,11 @@ shape = SubResource("BoxShape3D_1e6qh")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_5to17")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="Interactable3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_3eti3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactable3D"]
+shape = SubResource("BoxShape3D_qtaj4")
