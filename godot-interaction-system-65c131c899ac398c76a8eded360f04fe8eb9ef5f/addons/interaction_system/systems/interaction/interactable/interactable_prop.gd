@@ -22,8 +22,8 @@ class_name InteractableProp
 ## [b]Closest[/b]: Highlighter will only work if the object is closest to the player.
 @export_enum("Always", "Closest") var highlight_when: int = 0
 
-@onready var outline_shader: ShaderMaterial = preload("res://addons/interaction_system/assets/shaders/outline.tres").duplicate()
-@onready var higlighter_shader: ShaderMaterial = preload("res://addons/interaction_system/assets/shaders/item_highlighter.tres")
+@onready var outline_shader: ShaderMaterial = preload("res://godot-interaction-system-65c131c899ac398c76a8eded360f04fe8eb9ef5f/addons/interaction_system/assets/shaders/outline.tres").duplicate()
+@onready var higlighter_shader: ShaderMaterial = preload("res://godot-interaction-system-65c131c899ac398c76a8eded360f04fe8eb9ef5f/addons/interaction_system/assets/shaders/item_highlighter.tres")
 
 var outline_width
 
