@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsm23h7rumywg"]
+[gd_scene load_steps=5 format=3 uid="uid://dsm23h7rumywg"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_sqpub"]
 [ext_resource type="ArrayMesh" uid="uid://c8q2o7ta2mgcj" path="res://Characters/fixed.res" id="2_3kjrr"]
+[ext_resource type="Script" path="res://godot-interaction-system-65c131c899ac398c76a8eded360f04fe8eb9ef5f/addons/interaction_system/systems/interaction/interactor/character_body_3d_interactor.gd" id="3_v1u1d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6rxwj"]
 size = Vector3(1, 3, 1)
@@ -25,3 +26,11 @@ fov = 90.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("BoxShape3D_6rxwj")
+
+[node name="CharacterBody3DInteractor" type="Node3D" parent="." node_paths=PackedStringArray("ray_cast")]
+script = ExtResource("3_v1u1d")
+ray_cast = NodePath("RayCast3D")
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3DInteractor"]
+collision_mask = 2
+hit_from_inside = true

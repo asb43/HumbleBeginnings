@@ -8,9 +8,9 @@ class_name CharacterBody3DInteractor
 ## Check [color=#76B6E0]
 ## [url=https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html#inputmap]docs[/url]
 ## [/color] how to create one.
-@export var action_name: String = "":
+@export var action_name: String = "Interact":
 	set(p_action_name):
-		if p_action_name != "":
+		if p_action_name != action_name:
 			action_name = p_action_name
 			update_configuration_warnings()
 
@@ -90,7 +90,9 @@ func check_area() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	action_name = "Interact"
 	if event.is_action_pressed(action_name):
+		print("E is pressed")
 		if cached_raycasted and not disable_interaction_for_ray_cast:
 			interact(cached_raycasted)
 

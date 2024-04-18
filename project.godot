@@ -19,7 +19,7 @@ config/icon="res://Assets/icon.svg"
 
 CyclopsAutoload="*res://addons/cyclops_level_builder/cyclops_global_scene.tscn"
 SoundManager="*res://addons/sound_manager/sound_manager.gd"
-InteractionSystem="*res://addons/interaction_system/interaction_system.gd"
+InteractionSystem="*res://godot-interaction-system-65c131c899ac398c76a8eded360f04fe8eb9ef5f/addons/interaction_system/interaction_system.gd"
 
 [editor]
 
@@ -28,7 +28,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/cyclops_level_builder/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/interaction_system/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/cyclops_level_builder/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 
@@ -50,6 +50,11 @@ move_left={
 move_right={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":100,"echo":false,"script":null)
+]
+}
+Interact={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":69,"echo":false,"script":null)
 ]
 }
 
