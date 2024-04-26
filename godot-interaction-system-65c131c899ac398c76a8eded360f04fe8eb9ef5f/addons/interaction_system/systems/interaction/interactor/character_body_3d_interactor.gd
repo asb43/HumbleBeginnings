@@ -64,6 +64,7 @@ func check_ray_cast() -> void:
 		unfocus(cached_raycasted)
 	if new_raycasted:
 		focus(new_raycasted)
+		print("object detected")
 
 	cached_raycasted = new_raycasted
 
@@ -88,6 +89,9 @@ func check_area() -> void:
 
 	cached_closest = new_closest
 
+
+func _process(delta):
+	pass
 
 func _input(event: InputEvent) -> void:
 	action_name = "Interact"
