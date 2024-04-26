@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://jnddp6hoao4v"]
+[gd_scene load_steps=2 format=3 uid="uid://jnddp6hoao4v"]
+
+[ext_resource type="PackedScene" uid="uid://dq6tvhqcy2aps" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scenes/main_menu.tscn" id="1_b6nhr"]
 
 [node name="01_MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +9,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("1_b6nhr")]
+layout_mode = 1
