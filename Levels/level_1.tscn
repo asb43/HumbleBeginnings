@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpgogkmhd6vr5"]
+[gd_scene load_steps=9 format=3 uid="uid://dpgogkmhd6vr5"]
 
 [ext_resource type="PackedScene" uid="uid://du6t2foel2hqe" path="res://Levels/block.tscn" id="1_bidj4"]
 [ext_resource type="PackedScene" uid="uid://dsm23h7rumywg" path="res://Characters/bot_boi.tscn" id="2_wrf4h"]
+[ext_resource type="PackedScene" uid="uid://cq363vlrx7o7b" path="res://examples/scenes/3d/interactable/focus_unfocus_box/FocusUnfocusBox.tscn" id="3_5b65x"]
 [ext_resource type="Environment" uid="uid://ndg04sao8eo2" path="res://Levels/Resources/level_1_sky.tres" id="4_m2qvh"]
 [ext_resource type="PackedScene" uid="uid://bjurincwnv04" path="res://Objects/coin.tscn" id="5_0nl6v"]
 
@@ -53,6 +54,11 @@ transform = Transform3D(0.974511, 0.224339, 0, -0.224339, 0.974511, 0, 0, 0, 1, 
 
 [node name="Block4" parent="Blocks" instance=ExtResource("1_bidj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07863, 4.28574, 0)
+
+[node name="InteractBlocks" type="Node3D" parent="Blocks"]
+
+[node name="FocusUnfocusBox" parent="Blocks/InteractBlocks" instance=ExtResource("3_5b65x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85383, 2.32052, 0)
 
 [node name="Coin" parent="." instance=ExtResource("5_0nl6v")]
 transform = Transform3D(-4.38617e-08, 1.00344, 0, -1.00344, -4.38617e-08, 0, 0, 0, 1.00344, 0, 1, -1.9987)
