@@ -1,7 +1,7 @@
 extends Control
 signal  close
 
-const HSliderWLabel = preload("res://addons/EasyMenus/Scripts/slider_w_labels.gd")
+const HSliderWLabel = preload("C:/GodotProjects/HumbleBeginningsv.2/EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scripts/slider_w_labels.gd")
 
 @onready var sfx_volume_slider : HSliderWLabel = $%SFXVolumeSlider
 @onready var music_volume_slider: HSliderWLabel = $%MusicVolumeSlider
