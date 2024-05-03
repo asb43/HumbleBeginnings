@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cq363vlrx7o7b" path="res://examples/scenes/3d/interactable/focus_unfocus_box/FocusUnfocusBox.tscn" id="3_5b65x"]
 [ext_resource type="Environment" uid="uid://ndg04sao8eo2" path="res://Levels/Resources/level_1_sky.tres" id="4_m2qvh"]
 [ext_resource type="PackedScene" uid="uid://bjurincwnv04" path="res://Objects/coin.tscn" id="5_0nl6v"]
+[ext_resource type="PackedScene" uid="uid://bwgsreo8jcw47" path="res://Levels/level_1_model.tscn" id="5_pjbpk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kqdmm"]
 size = Vector3(25, 0.5, 25)
@@ -20,7 +21,7 @@ size = Vector3(25, 0.5, 25)
 [node name="Level1" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250379, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250379, 28)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
@@ -70,4 +71,6 @@ environment = ExtResource("4_m2qvh")
 transform = Transform3D(0.13585, -0.997685, 0, 0.997685, 0.13585, 0, 0, 0, 1.00689, -6.18091, 2.91416, -4.35739)
 
 [node name="Coin3" parent="." instance=ExtResource("5_0nl6v")]
-transform = Transform3D(1.32492e-07, -1.01036, 0, 1.01036, 1.32492e-07, 0, 0, 0, 1.01036, 7.96623, 2.74884, -6.01676)
+transform = Transform3D(1.32492e-07, -1.01036, 0, 1.01036, 1.32492e-07, 0, 0, 0, 1.01036, 7.93903, 5.41026, -5.65018)
+
+[node name="LevelModel" parent="." instance=ExtResource("5_pjbpk")]
