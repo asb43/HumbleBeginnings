@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsm23h7rumywg"]
+[gd_scene load_steps=8 format=3 uid="uid://dsm23h7rumywg"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_sqpub"]
 [ext_resource type="ArrayMesh" uid="uid://c8q2o7ta2mgcj" path="res://Characters/fixed.res" id="2_3kjrr"]
@@ -7,20 +7,26 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_6rxwj"]
 size = Vector3(1, 3, 1)
 
+[sub_resource type="Animation" id="Animation_a43bx"]
+resource_name = "walking"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o8od2"]
+_data = {
+"walking": SubResource("Animation_a43bx")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_48p0a"]
+
 [node name="bot_boi" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62035, 0)
 script = ExtResource("1_sqpub")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-mesh = ExtResource("2_3kjrr")
+sens_horizontal = 0.2
+sens_vertical = 0.2
 
 [node name="Camera_Controller" type="Node3D" parent="."]
 
-[node name="Camera_Target" type="Node3D" parent="Camera_Controller"]
-
-[node name="Camera3D" type="Camera3D" parent="Camera_Controller/Camera_Target"]
-transform = Transform3D(1, 0, 0, 0, 0.912412, 0.40927, 0, -0.40927, 0.912412, 0, 2.62417, 2.19139)
+[node name="Camera3D" type="Camera3D" parent="Camera_Controller"]
+transform = Transform3D(1, 0, 0, 0, 0.912413, 0.40927, 0, -0.40927, 0.912413, 0, 2.62417, 2.19139)
 fov = 90.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -37,4 +43,27 @@ transform = Transform3D(3.61214, 0, 0, 0, -1.01412e-07, 75.6741, 0, 2.32003, 3.3
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
-debug_shape_custom_color = Color(1, 1, 1, 1)
+debug_shape_custom_color = Color(1, 1, 1, 0)
+
+[node name="Armature" type="Node3D" parent="."]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="Armature"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_3kjrr")
+skeleton = NodePath("../../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Armature/Skeleton3D/MeshInstance3D")
+libraries = {
+"": SubResource("AnimationLibrary_o8od2")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Armature/Skeleton3D/MeshInstance3D")
+libraries = {
+"": SubResource("AnimationLibrary_o8od2")
+}
+tree_root = SubResource("AnimationNodeStateMachine_48p0a")
+anim_player = NodePath("../AnimationPlayer")
