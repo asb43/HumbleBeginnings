@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dpgogkmhd6vr5"]
+[gd_scene load_steps=7 format=3 uid="uid://dpgogkmhd6vr5"]
 
 [ext_resource type="PackedScene" uid="uid://du6t2foel2hqe" path="res://Levels/block.tscn" id="1_bidj4"]
 [ext_resource type="PackedScene" uid="uid://dsm23h7rumywg" path="res://Characters/bot_boi.tscn" id="2_wrf4h"]
@@ -7,31 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjurincwnv04" path="res://Objects/coin.tscn" id="5_0nl6v"]
 [ext_resource type="PackedScene" uid="uid://bwgsreo8jcw47" path="res://Levels/level_1_model.tscn" id="5_pjbpk"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kqdmm"]
-size = Vector3(25, 0.5, 25)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvx7q"]
-albedo_color = Color(0.121569, 0.45098, 0.164706, 1)
-roughness = 0.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_6s2qj"]
-material = SubResource("StandardMaterial3D_dvx7q")
-size = Vector3(25, 0.5, 25)
-
 [node name="Level1" type="Node3D"]
-
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.250379, 28)
-metadata/_edit_group_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001688, 0.0186205, 0.000359058)
-shape = SubResource("BoxShape3D_kqdmm")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1.00075, 0, 0, 0, 1.00075, 0, 0, 0, 1.00075, 0, 0, 0)
-mesh = SubResource("BoxMesh_6s2qj")
-skeleton = NodePath("../CollisionShape3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.664357, 0.747415, 0, -0.747415, 0.664357, 0, 9.89449, 3.61327)
@@ -59,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07863, 4.28574, 0)
 [node name="InteractBlocks" type="Node3D" parent="Blocks"]
 
 [node name="FocusUnfocusBox" parent="Blocks/InteractBlocks" instance=ExtResource("3_5b65x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.85383, 2.32052, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95573, 1.41026, 11.4075)
 
 [node name="Coin" parent="." instance=ExtResource("5_0nl6v")]
 transform = Transform3D(-4.38617e-08, 1.00344, 0, -1.00344, -4.38617e-08, 0, 0, 0, 1.00344, 0, 1, -1.9987)
@@ -68,9 +44,9 @@ transform = Transform3D(-4.38617e-08, 1.00344, 0, -1.00344, -4.38617e-08, 0, 0, 
 environment = ExtResource("4_m2qvh")
 
 [node name="Coin2" parent="." instance=ExtResource("5_0nl6v")]
-transform = Transform3D(0.13585, -0.997685, 0, 0.997685, 0.13585, 0, 0, 0, 1.00689, -6.18091, 2.91416, -4.35739)
+transform = Transform3D(0.13585, -0.997685, 0, 0.997685, 0.13585, 0, 0, 0, 1.00689, -30.1519, 6.98023, -8.51945)
 
 [node name="Coin3" parent="." instance=ExtResource("5_0nl6v")]
-transform = Transform3D(1.32492e-07, -1.01036, 0, 1.01036, 1.32492e-07, 0, 0, 0, 1.01036, 7.93903, 5.41026, -5.65018)
+transform = Transform3D(1.32492e-07, -1.01036, 0, 1.01036, 1.32492e-07, 0, 0, 0, 1.01036, 74.9826, 11.6657, 36.9388)
 
 [node name="LevelModel" parent="." instance=ExtResource("5_pjbpk")]

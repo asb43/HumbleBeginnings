@@ -33,7 +33,7 @@ use_area_3d_to_interact = true
 ray_cast = NodePath("RayCast3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3DInteractor"]
-transform = Transform3D(3.61214, 0, 0, 0, -5.60067e-08, 75.6741, 0, 1.28128, 3.30782e-06, 0, -0.0683203, 0)
+transform = Transform3D(3.61214, 0, 0, 0, -1.01412e-07, 75.6741, 0, 2.32003, 3.30782e-06, 0, -0.0683203, 0)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
