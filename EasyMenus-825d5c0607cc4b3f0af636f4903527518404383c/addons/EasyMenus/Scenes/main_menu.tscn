@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq6tvhqcy2aps"]
+[gd_scene load_steps=4 format=3 uid="uid://dq6tvhqcy2aps"]
 
 [ext_resource type="Script" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scripts/main_menu_controller.gd" id="1_lbw7r"]
-[ext_resource type="PackedScene" uid="uid://qlskttl1wjr7" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scenes/options_menu.tscn" id="2_pwqpr"]
+[ext_resource type="Script" path="res://Levels/Custom Scripts/game_ui_button.gd" id="2_l60gk"]
+[ext_resource type="Script" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scripts/options_menu_controller.gd" id="3_dvhnw"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -70,10 +71,19 @@ focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("2_pwqpr")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
+[node name="GameMenu" type="MarginContainer" parent="Content"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/GameMenu"]
+layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="Content/GameMenu/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_l60gk")
+
+[node name="OptionsTabMenu" type="TabContainer" parent="Content"]
+layout_mode = 2
+script = ExtResource("3_dvhnw")
 
 [connection signal="pressed" from="Content/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Content/OptionsButton" to="." method="open_options"]

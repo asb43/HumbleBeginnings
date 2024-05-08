@@ -12,3 +12,5 @@ grow_vertical = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("1_b6nhr")]
 layout_mode = 1
+
+[connection signal="start_game_pressed" from="MainMenu" to="MainMenu" method="_on_start_game_pressed"]

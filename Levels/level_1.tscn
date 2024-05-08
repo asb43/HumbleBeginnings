@@ -1,21 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpgogkmhd6vr5"]
+[gd_scene load_steps=11 format=3 uid="uid://dpgogkmhd6vr5"]
 
 [ext_resource type="PackedScene" uid="uid://du6t2foel2hqe" path="res://Levels/block.tscn" id="1_bidj4"]
+[ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_j4u2f"]
+[ext_resource type="Script" path="res://Levels/Player_HUD.gd" id="2_5u7pa"]
 [ext_resource type="PackedScene" uid="uid://dsm23h7rumywg" path="res://Characters/bot_boi.tscn" id="2_wrf4h"]
 [ext_resource type="PackedScene" uid="uid://cq363vlrx7o7b" path="res://examples/scenes/3d/interactable/focus_unfocus_box/FocusUnfocusBox.tscn" id="3_5b65x"]
+[ext_resource type="Texture2D" uid="uid://63ccbphhlfx2" path="res://Assets/icon.svg" id="3_v3jg3"]
 [ext_resource type="Environment" uid="uid://ndg04sao8eo2" path="res://Levels/Resources/level_1_sky.tres" id="4_m2qvh"]
+[ext_resource type="Script" path="res://Levels/TabMenu.gd" id="4_wmuov"]
 [ext_resource type="PackedScene" uid="uid://bjurincwnv04" path="res://Objects/coin.tscn" id="5_0nl6v"]
 [ext_resource type="PackedScene" uid="uid://bwgsreo8jcw47" path="res://Levels/level_1_model.tscn" id="5_pjbpk"]
 
 [node name="Level1" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.664357, 0.747415, 0, -0.747415, 0.664357, 0, 9.89449, 3.61327)
-shadow_enabled = true
+script = ExtResource("1_j4u2f")
 
 [node name="bot_boi" parent="." instance=ExtResource("2_wrf4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69855, 3.68198)
 floor_stop_on_slope = false
+
+[node name="Player_HUD" type="Control" parent="." node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_5u7pa")
+player = NodePath("../bot_boi")
+default_hint_icon = ExtResource("3_v3jg3")
+
+[node name="TabMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_wmuov")
 
 [node name="Blocks" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.43939)
@@ -37,16 +54,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07863, 4.28574, 0)
 [node name="FocusUnfocusBox" parent="Blocks/InteractBlocks" instance=ExtResource("3_5b65x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95573, 1.41026, 11.4075)
 
-[node name="Coin" parent="." instance=ExtResource("5_0nl6v")]
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("5_0nl6v")]
 transform = Transform3D(-4.38617e-08, 1.00344, 0, -1.00344, -4.38617e-08, 0, 0, 0, 1.00344, 0, 1, -1.9987)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_m2qvh")
-
-[node name="Coin2" parent="." instance=ExtResource("5_0nl6v")]
+[node name="Coin2" parent="Coins" instance=ExtResource("5_0nl6v")]
 transform = Transform3D(0.13585, -0.997685, 0, 0.997685, 0.13585, 0, 0, 0, 1.00689, -30.1519, 6.98023, -8.51945)
 
-[node name="Coin3" parent="." instance=ExtResource("5_0nl6v")]
+[node name="Coin3" parent="Coins" instance=ExtResource("5_0nl6v")]
 transform = Transform3D(1.32492e-07, -1.01036, 0, 1.01036, 1.32492e-07, 0, 0, 0, 1.01036, 74.9826, 11.6657, 36.9388)
 
-[node name="LevelModel" parent="." instance=ExtResource("5_pjbpk")]
+[node name="Level Elements" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Elements"]
+transform = Transform3D(1, 0, 0, 0, 0.664357, 0.747415, 0, -0.747415, 0.664357, 0, 9.89449, 3.61327)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level Elements"]
+environment = ExtResource("4_m2qvh")
+
+[node name="LevelModel" parent="Level Elements" instance=ExtResource("5_pjbpk")]

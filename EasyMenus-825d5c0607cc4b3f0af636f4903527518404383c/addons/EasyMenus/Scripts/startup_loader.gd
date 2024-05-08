@@ -6,20 +6,20 @@ var config = ConfigFile.new()
 # Loads settings from config file. Loads with standard values if settings not 
 # existing
 func load_settings():
-	var err = config.load(OptionsConstants.config_file_name)
+	var err = config.load(GameOptionsConstants.config_file_name)
 	
 	if err != OK:
 		return
 	
-	var sfx_bus_index = AudioServer.get_bus_index(OptionsConstants.sfx_bus_name)
-	var music_bus_index = AudioServer.get_bus_index(OptionsConstants.music_bus_name)
-	var sfx_volume = linear_to_db(config.get_value(OptionsConstants.section_name, OptionsConstants.sfx_volume_key_name, 1))
-	var music_volume = linear_to_db(config.get_value(OptionsConstants.section_name, OptionsConstants.music_volume_key_name, 1))
-	var fullscreen = config.get_value(OptionsConstants.section_name, OptionsConstants.fullscreen_key_name, false)
-	var render_scale = config.get_value(OptionsConstants.section_name, OptionsConstants.render_scale_key, 1)
-	var vsync = config.get_value(OptionsConstants.section_name, OptionsConstants.vsync_key, true)
-	var msaa_2d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, 0)
-	var msaa_3d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, 0)
+	var sfx_bus_index = AudioServer.get_bus_index(GameOptionsConstants.sfx_bus_name)
+	var music_bus_index = AudioServer.get_bus_index(GameOptionsConstants.music_bus_name)
+	var sfx_volume = linear_to_db(config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.sfx_volume_key_name, 1))
+	var music_volume = linear_to_db(config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.music_volume_key_name, 1))
+	var fullscreen = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.fullscreen_key_name, false)
+	var render_scale = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.render_scale_key, 1)
+	var vsync = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.vsync_key, true)
+	var msaa_2d = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.msaa_2d_key, 0)
+	var msaa_3d = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.msaa_3d_key, 0)
 	
 	AudioServer.set_bus_volume_db(sfx_bus_index, sfx_volume)
 	AudioServer.set_bus_volume_db(music_bus_index, music_volume)

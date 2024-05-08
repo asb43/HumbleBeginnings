@@ -1,6 +1,19 @@
+class_name Bot_boi
 extends CharacterBody3D
+
+
+
 @onready var camera = $Camera_Controller
 @onready var animation_player = $MeshInstance3D/AnimationPlayer
+
+
+## Reference to Pause menu node
+@export var pause_menu : NodePath
+## Refereence to Player HUD node
+@export var player_hud : NodePath
+# Used for handling input when UI is open/displayed
+var is_showing_ui : bool
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var jumps = 0
