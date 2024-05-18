@@ -1,10 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq6tvhqcy2aps"]
+[gd_scene load_steps=3 format=3 uid="uid://dq6tvhqcy2aps"]
 
 [ext_resource type="Script" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scripts/main_menu_controller.gd" id="1_lbw7r"]
-[ext_resource type="Script" path="res://Levels/Custom Scripts/game_ui_button.gd" id="2_l60gk"]
-[ext_resource type="Script" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scripts/options_menu_controller.gd" id="3_dvhnw"]
+[ext_resource type="PackedScene" uid="uid://vxf0evoitdrv" path="res://Scenes/options_tab_menu.tscn" id="2_6iqdi"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("first_focus_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lbw7r")
+first_focus_button = NodePath("Content/GameMenu/VBoxContainer/StartGameButton")
 
 [node name="Content" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -30,14 +30,23 @@ metadata/_edit_group_ = true
 [node name="Title" type="Label" parent="Content"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "Game Title"
+text = "Humble Beginnings"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Content"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="StartGameButton" type="Button" parent="Content"]
+[node name="GameMenu" type="MarginContainer" parent="Content"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/GameMenu"]
+layout_mode = 2
+
+[node name="spacer" type="PanelContainer" parent="Content/GameMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="Content/GameMenu/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
@@ -49,18 +58,7 @@ focus_previous = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="OptionsButton" type="Button" parent="Content"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-focus_neighbor_top = NodePath("../StartGameButton")
-focus_neighbor_bottom = NodePath("../QuitButton")
-focus_next = NodePath("../QuitButton")
-focus_previous = NodePath("../StartGameButton")
-theme_override_font_sizes/font_size = 30
-text = "Options"
-
-[node name="QuitButton" type="Button" parent="Content"]
+[node name="QuitButton" type="Button" parent="Content/GameMenu/VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -71,20 +69,17 @@ focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
 
-[node name="GameMenu" type="MarginContainer" parent="Content"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Content/GameMenu"]
-layout_mode = 2
-
 [node name="OptionsButton" type="Button" parent="Content/GameMenu/VBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
-script = ExtResource("2_l60gk")
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Options"
 
-[node name="OptionsTabMenu" type="TabContainer" parent="Content"]
+[node name="OptionsTabMenu" parent="Content/GameMenu" instance=ExtResource("2_6iqdi")]
+visible = false
 layout_mode = 2
-script = ExtResource("3_dvhnw")
 
-[connection signal="pressed" from="Content/StartGameButton" to="." method="_on_start_game_button_pressed"]
-[connection signal="pressed" from="Content/OptionsButton" to="." method="open_options"]
-[connection signal="pressed" from="Content/QuitButton" to="." method="quit"]
+[connection signal="pressed" from="Content/GameMenu/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="Content/GameMenu/VBoxContainer/QuitButton" to="." method="quit"]
+[connection signal="pressed" from="Content/GameMenu/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

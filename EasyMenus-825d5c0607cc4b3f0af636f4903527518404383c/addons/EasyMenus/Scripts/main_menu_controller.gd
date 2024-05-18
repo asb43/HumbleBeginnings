@@ -1,6 +1,5 @@
 extends Control
 signal start_game_pressed
-signal options_menu_opened
 
 @export var first_focus_button: Button
 @onready var game_menu: MarginContainer = $ContentMain/GameMenu
@@ -61,8 +60,7 @@ func _input(event):
 		game_menu.show()
 		options_button.grab_focus.call_deferred()
 
-
-func open_options_menu():
+func _on_options_button_pressed():
 	options_tab_menu.show()
 	options_tab_menu.nodes_to_focus[0].grab_focus.call_deferred()
 	game_menu.hide()
@@ -70,4 +68,6 @@ func open_options_menu():
 
 func _on_start_game_button_pressed():
 	emit_signal("start_game_pressed")
+
+
 

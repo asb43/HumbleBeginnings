@@ -299,8 +299,7 @@ func set_msaa(mode, index):
 		3:
 			get_viewport().set(mode,Viewport.MSAA_8X)
 
-
-func _on_apply_changes_pressed() -> void:
+func _on_apply_changes_pressed():
 	window_mode_option_button.item_selected.emit(window_mode_option_button.selected)
 	save_options()
 	options_updated.emit()
