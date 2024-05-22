@@ -79,4 +79,3 @@ layout_mode = 1
 [connection signal="pressed" from="Content/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Content/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="pressed" from="Content/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="close" from="OptionsMenu" to="." method="_on_options_menu_close"]
