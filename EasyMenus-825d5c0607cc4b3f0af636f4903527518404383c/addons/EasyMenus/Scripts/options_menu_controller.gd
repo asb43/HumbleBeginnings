@@ -6,13 +6,12 @@ const HSliderWLabel = preload("res://EasyMenus-825d5c0607cc4b3f0af636f4903527518
 var config = ConfigFile.new()
 
 # GAMEPLAY
-@onready var invert_y_check_button: CheckButton = %InvertYAxisCheckButton
-@onready var headbob_option_button: OptionButton = %HeadbobOptionButton
+@onready var invert_y_check_button: CheckButton = %InvertY
+#@onready var headbob_option_button: OptionButton = %HeadbobOptionButton
 @onready var mouse_sens_slider: HSlider = %MouseSensSlider
-@onready var mouse_sens_value_label: Label = %MouseSensValueLabel
-@onready var gp_look_sens_value_label: Label = %GPLookSensValueLabel
-@onready var gp_look_sens_slider: HSlider = %GPLookSensSlider
-
+@onready var mouse_sens_value_label: Label = %ValueLabel
+#@onready var gp_look_sens_value_label: Label = %GPLookSensValueLabel
+#@onready var gp_look_sens_slider: HSlider = %GPLookSensSlider
 var gp_looksens : float
 var mouse_sens : float
 var headbob_strength : int
@@ -29,7 +28,7 @@ var music_bus_index
 @onready var render_scale_slider: HSlider = %RenderScaleSlider
 @onready var gui_scale_current_value_label: Label = %GUIScaleCurrentValueLabel
 @onready var gui_scale_slider: HSlider = %GUIScaleSlider
-@onready var vsync_check_button: CheckButton = %VSyncCheckButton
+@onready var vsync_check_button: CheckButton = %VSync
 @onready var anti_aliasing_2d_option_button: OptionButton = $%AntiAliasing2DOptionButton
 @onready var anti_aliasing_3d_option_button: OptionButton = $%AntiAliasing3DOptionButton
 @onready var window_mode_option_button: OptionButton = %WindowModeOptionButton
@@ -68,10 +67,10 @@ const RESOLUTION_DICTIONARY : Dictionary = {
 
 
 func _ready() -> void:
-	add_headbob_items()
-	headbob_option_button.item_selected.connect(on_headbob_selected)
+#	add_headbob_items()
+#	headbob_option_button.item_selected.connect(on_headbob_selected)
 	mouse_sens_slider.value_changed.connect(_on_mouse_sens_slider_value_changed)
-	gp_look_sens_slider.value_changed.connect(_on_gp_looksens_slider_value_changed)
+#	gp_look_sens_slider.value_changed.connect(_on_gp_looksens_slider_value_changed)
 	add_window_mode_items()
 	add_resolution_items()
 	window_mode_option_button.item_selected.connect(on_window_mode_selected)
@@ -89,22 +88,22 @@ func on_open():
 
 
 # Adding headbob options to the button
-func add_headbob_items() -> void:
-	for headbob_option in HEADBOB_DICTIONARY:
-		headbob_option_button.add_item(headbob_option)
+#func add_headbob_items() -> void:
+#	for headbob_option in HEADBOB_DICTIONARY:
+#		headbob_option_button.add_item(headbob_option)
 
 
-func on_headbob_selected(index:int) -> void:
-	headbob_strength = HEADBOB_DICTIONARY.values()[index]
+#func on_headbob_selected(index:int) -> void:
+#	headbob_strength = HEADBOB_DICTIONARY.values()[index]
 
 func _on_mouse_sens_slider_value_changed(value):
 	mouse_sens = value
 	mouse_sens_value_label.text = str(value)
 	
 
-func _on_gp_looksens_slider_value_changed(value):
-	gp_looksens = value
-	gp_look_sens_value_label.text = str(value)
+#func _on_gp_looksens_slider_value_changed(value):
+#	gp_looksens = value
+#	gp_look_sens_value_label.text = str(value)
 
 
 # Adding window modes to the window mode button.
@@ -206,20 +205,19 @@ func load_options():
 	var msaa_3d = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.msaa_3d_key, 0)
 
 	# LOADING GAMEPLAY CFG
-	invert_y_check_button.set_pressed_no_signal(invert_y)
-	invert_y_check_button.emit_signal("toggled", invert_y) #TODO: change this to the new signal emitting syntax
+#	invert_y_check_button.set_pressed_no_signal(invert_y)
+#	invert_y_check_button.emit_signal("toggled", invert_y) #TODO: change this to the new signal emitting syntax
 
-	match headbob_strength:
-		1: headbob_option_button.selected = 0
-		3: headbob_option_button.selected = 1
-		7: headbob_option_button.selected = 2
-	headbob_option_button.item_selected.emit(headbob_option_button.selected)
-
+#	match headbob_strength:
+#		1: headbob_option_button.selected = 0
+#		3: headbob_option_button.selected = 1
+#		7: headbob_option_button.selected = 2
+#	headbob_option_button.item_selected.emit(headbob_option_button.selected)
 	mouse_sens_slider.value = mouse_sens
 	mouse_sens_value_label.text = str(mouse_sens)
 
-	gp_look_sens_slider.value = gp_looksens
-	gp_look_sens_value_label.text = str(gp_looksens)
+#	gp_look_sens_slider.value = gp_looksens
+#	gp_look_sens_value_label.text = str(gp_looksens)
 
 	# LOADING AUDIO CFG
 	sfx_volume_slider.hslider.value = sfx_volume

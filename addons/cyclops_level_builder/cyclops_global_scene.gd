@@ -349,5 +349,4 @@ func set_custom_gizmo(gizmo:Node3D):
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+

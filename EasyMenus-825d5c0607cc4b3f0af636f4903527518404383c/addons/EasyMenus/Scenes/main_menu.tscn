@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq6tvhqcy2aps"]
+[gd_scene load_steps=6 format=3 uid="uid://dq6tvhqcy2aps"]
 
 [ext_resource type="Script" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scripts/main_menu_controller.gd" id="1_lbw7r"]
 [ext_resource type="PackedScene" uid="uid://vxf0evoitdrv" path="res://Scenes/options_tab_menu.tscn" id="2_6iqdi"]
+[ext_resource type="Script" path="res://Levels/Custom Scripts/game_ui_button.gd" id="2_mbhji"]
+[ext_resource type="PackedScene" uid="uid://c56b7kxfiaj3r" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Nodes/startup_loader.tscn" id="3_qri3c"]
+[ext_resource type="PackedScene" uid="uid://bg6gj8kohejmb" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Nodes/controller_echo_input_generator.tscn" id="4_w208x"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("first_focus_button")]
 layout_mode = 3
@@ -57,6 +60,7 @@ focus_next = NodePath("../OptionsButton")
 focus_previous = NodePath("../QuitButton")
 theme_override_font_sizes/font_size = 30
 text = "Start"
+script = ExtResource("2_mbhji")
 
 [node name="QuitButton" type="Button" parent="Content/GameMenu/VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
@@ -68,6 +72,7 @@ focus_next = NodePath("../StartGameButton")
 focus_previous = NodePath("../OptionsButton")
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+script = ExtResource("2_mbhji")
 
 [node name="OptionsButton" type="Button" parent="Content/GameMenu/VBoxContainer"]
 custom_minimum_size = Vector2(350, 0)
@@ -75,10 +80,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "Options"
+script = ExtResource("2_mbhji")
 
-[node name="OptionsTabMenu" parent="Content/GameMenu" instance=ExtResource("2_6iqdi")]
+[node name="OptionsTabMenu" parent="Content/GameMenu" node_paths=PackedStringArray("nodes_to_focus") instance=ExtResource("2_6iqdi")]
 visible = false
 layout_mode = 2
+nodes_to_focus = [null]
+
+[node name="StartupLoader" parent="." instance=ExtResource("3_qri3c")]
+
+[node name="ControllerEchoInputGenerator" parent="." instance=ExtResource("4_w208x")]
 
 [connection signal="pressed" from="Content/GameMenu/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
 [connection signal="pressed" from="Content/GameMenu/VBoxContainer/QuitButton" to="." method="quit"]
