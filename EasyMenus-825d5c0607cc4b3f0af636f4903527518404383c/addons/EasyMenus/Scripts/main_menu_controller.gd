@@ -2,10 +2,10 @@ extends Control
 signal start_game_pressed
 
 @export var first_focus_button: Button
-@onready var game_menu: MarginContainer = $ContentMain/GameMenu
-@onready var options_tab_menu: OptionsTabMenu = $Content/OptionsTabMenu
+@onready var game_menu: MarginContainer = $Content/GameMenu
+@onready var options_tab_menu: OptionsTabMenu = $Content/GameMenu/OptionsTabMenu
 @onready var options_button: GameUIButton = $Content/GameMenu/VBoxContainer/OptionsButton
-
+@onready var startup_loader: = $StartupLoader
 #region UI AUDIO
 @export var sound_hover : AudioStream
 @export var sound_click : AudioStream
@@ -54,10 +54,9 @@ func quit():
 
 
 func _input(event):
-	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and !game_menu.visible:
+	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and options_tab_menu.visible:
 		accept_event()
 		options_tab_menu.hide()
-		game_menu.show()
 		options_button.grab_focus.call_deferred()
 
 func _on_options_button_pressed():
@@ -66,8 +65,12 @@ func _on_options_button_pressed():
 	game_menu.hide()
 
 
+
 func _on_start_game_button_pressed():
 	emit_signal("start_game_pressed")
+	var level1_scene_path = "res://Levels/level_1.tscn"
+	var level1_scene = load(level1_scene_path)
+	get_tree().change_scene_to_packed(level1_scene)
 
 
 

@@ -15,7 +15,7 @@ func load_settings():
 	var music_bus_index = AudioServer.get_bus_index(GameOptionsConstants.music_bus_name)
 	var sfx_volume = linear_to_db(config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.sfx_volume_key_name, 1))
 	var music_volume = linear_to_db(config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.music_volume_key_name, 1))
-	#var fullscreen = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.fullscreen_key_name, false)
+#	var fullscreen = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.fullscreen_key_name, false)
 	var render_scale = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.render_scale_key, 1)
 	var vsync = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.vsync_key, true)
 	var msaa_2d = config.get_value(GameOptionsConstants.section_name, GameOptionsConstants.msaa_2d_key, 0)
@@ -23,10 +23,10 @@ func load_settings():
 	
 	AudioServer.set_bus_volume_db(sfx_bus_index, sfx_volume)
 	AudioServer.set_bus_volume_db(music_bus_index, music_volume)
-	#if fullscreen:
-	#	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-	#else:
-	#	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+#	if fullscreen:
+#		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+#	else:
+#		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	#get_viewport().scaling_3d_scale = render_scale
 	

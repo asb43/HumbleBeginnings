@@ -10,13 +10,14 @@
 [sub_resource type="SystemFont" id="SystemFont_w64ca"]
 font_names = PackedStringArray("Times New Roman")
 
-[node name="OptionsTabMenu" type="TabContainer"]
+[node name="OptionsTabMenu" type="TabContainer" node_paths=PackedStringArray("nodes_to_focus")]
 custom_minimum_size = Vector2(500, 500)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("SystemFont_w64ca")
 script = ExtResource("1_mxyen")
+nodes_to_focus = [NodePath("Gameplay"), NodePath("Graphics"), NodePath("Audio"), NodePath("Bindings")]
 
 [node name="Gameplay" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -145,7 +146,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "2D Anti Aliasing"
 
-[node name="AntiAliasing2DLabel2" type="OptionButton" parent="Graphics/ScrollContainer/VBoxContainer/AA2D"]
+[node name="AntiAliasing2DOptionButton" type="OptionButton" parent="Graphics/ScrollContainer/VBoxContainer/AA2D"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -153,7 +154,7 @@ size_flags_horizontal = 10
 tooltip_text = "Smooth out edges of 2D objects"
 script = ExtResource("4_u6uo3")
 
-[node name="GamepadClosable" parent="Graphics/ScrollContainer/VBoxContainer/AA2D/AntiAliasing2DLabel2" instance=ExtResource("5_baojb")]
+[node name="GamepadClosable" parent="Graphics/ScrollContainer/VBoxContainer/AA2D/AntiAliasing2DOptionButton" instance=ExtResource("5_baojb")]
 
 [node name="AA3D" type="HBoxContainer" parent="Graphics/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 40)
@@ -164,12 +165,12 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "3D Anti Aliasing"
 
-[node name="AntiAliasing3DLabel2" type="OptionButton" parent="Graphics/ScrollContainer/VBoxContainer/AA3D"]
+[node name="AntiAliasing3DOptionButton" type="OptionButton" parent="Graphics/ScrollContainer/VBoxContainer/AA3D"]
 unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("4_u6uo3")
 
-[node name="GamepadClosable" parent="Graphics/ScrollContainer/VBoxContainer/AA3D/AntiAliasing3DLabel2" instance=ExtResource("5_baojb")]
+[node name="GamepadClosable" parent="Graphics/ScrollContainer/VBoxContainer/AA3D/AntiAliasing3DOptionButton" instance=ExtResource("5_baojb")]
 
 [node name="RenderScale" type="HBoxContainer" parent="Graphics/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 40)
@@ -306,7 +307,6 @@ text = "Coming Soon"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Bindings/ScrollContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 

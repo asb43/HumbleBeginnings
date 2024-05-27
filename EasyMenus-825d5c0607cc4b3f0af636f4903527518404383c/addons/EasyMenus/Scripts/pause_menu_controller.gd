@@ -6,7 +6,7 @@ signal back_to_main_pressed
 @onready var options_menu : Control = $%OptionsMenu
 @onready var resume_game_button: Button = $%ResumeGameButton
 	
-func open_pause_menu():
+func open_pause_menu(event):
 	#Stops game and shows pause menu
 	get_tree().paused = true
 	show()

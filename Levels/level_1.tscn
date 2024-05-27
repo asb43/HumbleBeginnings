@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpgogkmhd6vr5"]
+[gd_scene load_steps=12 format=3 uid="uid://dpgogkmhd6vr5"]
 
 [ext_resource type="PackedScene" uid="uid://du6t2foel2hqe" path="res://Levels/block.tscn" id="1_bidj4"]
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_j4u2f"]
 [ext_resource type="Script" path="res://Levels/Player_HUD.gd" id="2_5u7pa"]
 [ext_resource type="PackedScene" uid="uid://dsm23h7rumywg" path="res://Characters/bot_boi.tscn" id="2_wrf4h"]
 [ext_resource type="PackedScene" uid="uid://cq363vlrx7o7b" path="res://examples/scenes/3d/interactable/focus_unfocus_box/FocusUnfocusBox.tscn" id="3_5b65x"]
+[ext_resource type="PackedScene" uid="uid://rw7gdui8lu3n" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scenes/pause_menu.tscn" id="3_a4ex1"]
 [ext_resource type="Texture2D" uid="uid://63ccbphhlfx2" path="res://Assets/icon.svg" id="3_v3jg3"]
 [ext_resource type="Environment" uid="uid://ndg04sao8eo2" path="res://Levels/Resources/level_1_sky.tres" id="4_m2qvh"]
 [ext_resource type="Script" path="res://Levels/TabMenu.gd" id="4_wmuov"]
@@ -75,3 +76,8 @@ shadow_enabled = true
 environment = ExtResource("4_m2qvh")
 
 [node name="LevelModel" parent="Level Elements" instance=ExtResource("5_pjbpk")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_a4ex1")]
+visible = false
+
+[connection signal="back_to_main_pressed" from="PauseMenu" to="." method="_on_pause_menu_back_to_main_pressed"]
