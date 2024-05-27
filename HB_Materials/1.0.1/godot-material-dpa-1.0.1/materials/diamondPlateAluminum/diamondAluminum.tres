@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://mtguo82oyuxe"]
+
+[ext_resource type="Texture2D" uid="uid://5ltva74rcohv" path="res://HB_Materials/1.0.1/godot-material-dpa-1.0.1/materials/diamondplate_tex.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://4qnjio03uvlv" path="res://HB_Materials/1.0.1/godot-material-dpa-1.0.1/materials/diamondplate_spec.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c1ylxwm652okq" path="res://HB_Materials/1.0.1/godot-material-dpa-1.0.1/materials/diamondplate.png" id="3"]
+
+[resource]
+resource_name = "diamondAluminum"
+render_priority = 5
+albedo_texture = ExtResource("1")
+metallic = 0.65
+metallic_specular = 0.4
+metallic_texture = ExtResource("2")
+metallic_texture_channel = 4
+roughness = 0.3
+normal_enabled = true
+normal_texture = ExtResource("3")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 10.1964
+uv2_scale = Vector3(0.25, 0.25, 0.25)
+uv2_triplanar = true
+uv2_triplanar_sharpness = 8.28211

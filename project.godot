@@ -31,6 +31,10 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/anim_player_refactor/plugin.cfg", "res://addons/cyclops_level_builder/plugin.cfg", "res://addons/gaea/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 move_up={
