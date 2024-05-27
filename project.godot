@@ -13,7 +13,7 @@ config_version=5
 config/name="HumbleBeginnings v.2"
 run/main_scene="res://Levels/01_main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://Assets/icon.svg"
+config/icon="res://Assets/Icons/512.png"
 
 [autoload]
 
