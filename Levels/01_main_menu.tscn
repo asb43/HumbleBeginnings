@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://jnddp6hoao4v"]
+[gd_scene load_steps=4 format=3 uid="uid://jnddp6hoao4v"]
 
 [ext_resource type="PackedScene" uid="uid://dq6tvhqcy2aps" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scenes/main_menu.tscn" id="1_b6nhr"]
+[ext_resource type="PackedScene" uid="uid://c56b7kxfiaj3r" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Nodes/startup_loader.tscn" id="2_2uwl7"]
+[ext_resource type="PackedScene" uid="uid://bg6gj8kohejmb" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Nodes/controller_echo_input_generator.tscn" id="3_okgfn"]
 
 [node name="01_MainMenu" type="Control"]
 layout_mode = 3
@@ -12,5 +14,9 @@ grow_vertical = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("1_b6nhr")]
 layout_mode = 1
+
+[node name="StartupLoader" parent="." instance=ExtResource("2_2uwl7")]
+
+[node name="ControllerEchoInputGenerator" parent="." instance=ExtResource("3_okgfn")]
 
 [connection signal="start_game_pressed" from="MainMenu" to="MainMenu" method="_on_start_game_pressed"]

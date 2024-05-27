@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 
 @onready var camera = $Camera_Controller
-@onready var animation_player = $MeshInstance3D/AnimationPlayer
+@onready var animation_player = $AnimationPlayer
 
 
 ## Reference to Pause menu node

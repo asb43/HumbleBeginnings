@@ -1,11 +1,12 @@
 extends Control
 signal start_game_pressed
 
+@onready var controller_echo_input_generator = $"../ControllerEchoInputGenerator"
 @export var first_focus_button: Button
 @onready var game_menu: MarginContainer = $Content/GameMenu
 @onready var options_tab_menu: OptionsTabMenu = $Content/GameMenu/OptionsTabMenu
 @onready var options_button: GameUIButton = $Content/GameMenu/VBoxContainer/OptionsButton
-@onready var startup_loader: = $StartupLoader
+@onready var startup_loader: = $"../StartupLoader"
 #region UI AUDIO
 @export var sound_hover : AudioStream
 @export var sound_click : AudioStream
