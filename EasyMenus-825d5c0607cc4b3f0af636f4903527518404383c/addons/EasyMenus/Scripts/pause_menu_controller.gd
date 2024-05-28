@@ -5,12 +5,14 @@ signal back_to_main_pressed
 @onready var content : VBoxContainer = $%Content
 @onready var options_menu : Control = $%OptionsMenu
 @onready var resume_game_button: Button = $%ResumeGameButton
-	
-func open_pause_menu(event):
+@onready var game_menu: MarginContainer = $Content
+
+func open_pause_menu():
 	#Stops game and shows pause menu
 	get_tree().paused = true
 	show()
-	resume_game_button.grab_focus()
+	options_menu.hide()
+	resume_game_button.grab_focus.call_deferred()
 	
 func close_pause_menu():
 	get_tree().paused = false
@@ -41,6 +43,12 @@ func _on_back_to_menu_button_pressed():
 	emit_signal("back_to_main_pressed")
 
 func _input(event):
-	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and visible and !options_menu.visible:
+	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and !game_menu.visible:
+		accept_event()
+		game_menu.show()
+		resume_game_button.grab_focus.call_deferred()
+		return
+
+	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and visible:
 		accept_event()
 		close_pause_menu()

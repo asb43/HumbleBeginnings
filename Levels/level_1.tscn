@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpgogkmhd6vr5"]
+[gd_scene load_steps=11 format=3 uid="uid://dpgogkmhd6vr5"]
 
 [ext_resource type="PackedScene" uid="uid://du6t2foel2hqe" path="res://Levels/block.tscn" id="1_bidj4"]
 [ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_j4u2f"]
@@ -8,14 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://rw7gdui8lu3n" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scenes/pause_menu.tscn" id="3_a4ex1"]
 [ext_resource type="Texture2D" uid="uid://63ccbphhlfx2" path="res://Assets/icon.svg" id="3_v3jg3"]
 [ext_resource type="Environment" uid="uid://ndg04sao8eo2" path="res://Levels/Resources/level_1_sky.tres" id="4_m2qvh"]
-[ext_resource type="Script" path="res://Levels/TabMenu.gd" id="4_wmuov"]
 [ext_resource type="PackedScene" uid="uid://bjurincwnv04" path="res://Objects/coin.tscn" id="5_0nl6v"]
 [ext_resource type="PackedScene" uid="uid://bwgsreo8jcw47" path="res://Levels/level_1_model.tscn" id="5_pjbpk"]
 
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_j4u2f")
 
-[node name="bot_boi" parent="." instance=ExtResource("2_wrf4h")]
+[node name="bot_boi" parent="." groups=["Player"] instance=ExtResource("2_wrf4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69855, 3.68198)
 floor_stop_on_slope = false
 
@@ -28,12 +27,8 @@ script = ExtResource("2_5u7pa")
 player = NodePath("../bot_boi")
 default_hint_icon = ExtResource("3_v3jg3")
 
-[node name="TabMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_wmuov")
+[node name="PauseMenu" parent="." instance=ExtResource("3_a4ex1")]
+visible = false
 
 [node name="Blocks" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.43939)
@@ -76,8 +71,5 @@ shadow_enabled = true
 environment = ExtResource("4_m2qvh")
 
 [node name="LevelModel" parent="Level Elements" instance=ExtResource("5_pjbpk")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("3_a4ex1")]
-visible = false
 
 [connection signal="back_to_main_pressed" from="PauseMenu" to="." method="_on_pause_menu_back_to_main_pressed"]

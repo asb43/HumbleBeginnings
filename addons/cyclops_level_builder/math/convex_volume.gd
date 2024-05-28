@@ -788,8 +788,8 @@ func create_mesh(material_list:Array[Material], default_material:Material, overr
 		surface_idx += 1
 	
 	mesh.shadow_mesh = shadow_mesh
-#	var err = mesh.lightmap_unwrap(Transform3D.IDENTITY, 10)
-#	print("Lightmap unwrap Error: %s" % err)
+	#var err = mesh.lightmap_unwrap(Transform3D.IDENTITY, 10)
+	#print("Lightmap unwrap Error: %s" % err)
 	return mesh
 
 
