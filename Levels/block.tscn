@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://du6t2foel2hqe"]
+[gd_scene load_steps=7 format=3 uid="uid://du6t2foel2hqe"]
 
 [ext_resource type="Script" path="res://godot-interaction-system-65c131c899ac398c76a8eded360f04fe8eb9ef5f/addons/interaction_system/systems/interaction/interactable/interactable_3d.gd" id="1_3eti3"]
+[ext_resource type="Script" path="res://Levels/MeshInstance3D.gd" id="1_4s0bb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1e6qh"]
 
@@ -22,6 +23,7 @@ shape = SubResource("BoxShape3D_1e6qh")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_5to17")
 skeleton = NodePath("../CollisionShape3D")
+script = ExtResource("1_4s0bb")
 
 [node name="Interactable3D" type="Area3D" parent="."]
 collision_layer = 2
