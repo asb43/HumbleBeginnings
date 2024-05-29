@@ -17,8 +17,11 @@ script = ExtResource("1_j4u2f")
 [node name="bot_boi" parent="." groups=["Player"] instance=ExtResource("2_wrf4h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69855, 3.68198)
 floor_stop_on_slope = false
+pause_menu = NodePath("../PauseMenu")
+player_hud = NodePath("../Player_HUD")
 
 [node name="Player_HUD" type="Control" parent="." node_paths=PackedStringArray("player")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
