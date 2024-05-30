@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mvwctjrt8qeq"]
+
+[ext_resource type="PackedScene" uid="uid://bkdvaoyqmd1pq" path="res://brickbridge medium.blend" id="1_81u02"]
+[ext_resource type="Material" uid="uid://ct28mvxsm7f6p" path="res://HB_Materials/godot-material-brick-orange-1.0.1/materials/brickOrange/brick.tres" id="2_y80a7"]
+
+[node name="brickbridge medium" instance=ExtResource("1_81u02")]
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("2_y80a7")

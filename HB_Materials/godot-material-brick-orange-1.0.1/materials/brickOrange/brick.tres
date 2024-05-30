@@ -1,0 +1,28 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://ct28mvxsm7f6p"]
+
+[ext_resource type="Texture2D" uid="uid://b03vf0ga3gne4" path="res://HB_Materials/godot-material-brick-orange-1.0.1/materials/brickOrange/ORANGE_BRICK_DIFF.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://7jpwq61isqxf" path="res://HB_Materials/godot-material-brick-orange-1.0.1/materials/brickOrange/ORANGE_BRICK_AO.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://3a4y7cdo8hvk" path="res://HB_Materials/godot-material-brick-orange-1.0.1/materials/brickOrange/ORANGE_BRICK_SPEC.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1si2vfqqrs43" path="res://HB_Materials/godot-material-brick-orange-1.0.1/materials/brickOrange/ORANGE_BRICK_NORM.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b5f8f1v1uukm7" path="res://HB_Materials/godot-material-brick-orange-1.0.1/materials/brickOrange/ORANGE_BRICK_DISP.png" id="5"]
+
+[resource]
+resource_name = "brick"
+albedo_texture = ExtResource("1")
+metallic = 0.1
+metallic_texture = ExtResource("3")
+metallic_texture_channel = 4
+roughness = 0.7
+roughness_texture = ExtResource("5")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 0.68
+normal_texture = ExtResource("4")
+ao_enabled = true
+ao_light_affect = 0.33
+ao_texture = ExtResource("2")
+ao_texture_channel = 4
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.1
+uv1_scale = Vector3(3, 3, 3)
+uv1_triplanar_sharpness = 1.3936

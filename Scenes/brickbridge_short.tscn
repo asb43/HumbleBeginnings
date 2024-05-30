@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfr5orvam2x4w"]
+
+[ext_resource type="PackedScene" uid="uid://brh6tjopltprv" path="res://brickbridge short.blend" id="1_0twyc"]
+
+[node name="brickbridge short" instance=ExtResource("1_0twyc")]
