@@ -101,6 +101,3 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
-func increment_coin_count():
-	coins += 1
-	coinsLabel.text = "Coins: " + str(coins)
