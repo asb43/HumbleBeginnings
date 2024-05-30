@@ -3,7 +3,7 @@ extends Interactor3D
 ## A specialized class tailored for [CharacterBody3D], it simplifies the process of creating a player character.
 class_name CharacterBody3DInteractor
 
-@onready var coin_label = $"/root/Level1/CoinTotal"
+@onready var coin_label = $"/root/Level2/CoinTotal"
 var coin_count = 0
 
 ## The name of the input action to be used to interact with [Interactable3D]. [br]

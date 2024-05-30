@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://mlfuamkcqamy"]
+
+[ext_resource type="Script" path="res://Levels/game_scene.gd" id="1_gpm30"]
+[ext_resource type="PackedScene" uid="uid://dsm23h7rumywg" path="res://Characters/bot_boi.tscn" id="2_ke84s"]
+[ext_resource type="PackedScene" uid="uid://ceokysq0e4epg" path="res://Levels/level_2_model.tscn" id="2_vkqtr"]
+[ext_resource type="Script" path="res://Levels/Player_HUD.gd" id="3_huuut"]
+[ext_resource type="Texture2D" uid="uid://63ccbphhlfx2" path="res://Assets/icon.svg" id="4_e8ljd"]
+[ext_resource type="PackedScene" uid="uid://rw7gdui8lu3n" path="res://EasyMenus-825d5c0607cc4b3f0af636f4903527518404383c/addons/EasyMenus/Scenes/pause_menu.tscn" id="5_70i5s"]
+[ext_resource type="PackedScene" uid="uid://du6t2foel2hqe" path="res://Levels/block.tscn" id="6_vry1d"]
+[ext_resource type="PackedScene" uid="uid://cq363vlrx7o7b" path="res://examples/scenes/3d/interactable/focus_unfocus_box/FocusUnfocusBox.tscn" id="7_yhwsj"]
+[ext_resource type="PackedScene" uid="uid://bjurincwnv04" path="res://Objects/coin.tscn" id="8_67dgu"]
+[ext_resource type="Environment" uid="uid://ndg04sao8eo2" path="res://Levels/Resources/level_1_sky.tres" id="9_38ly8"]
+
+[node name="Level2" type="Node3D"]
+script = ExtResource("1_gpm30")
+
+[node name="Level_2_model" parent="." instance=ExtResource("2_vkqtr")]
+
+[node name="bot_boi" parent="." groups=["Player"] instance=ExtResource("2_ke84s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69855, 1.68198)
+floor_stop_on_slope = false
+pause_menu = NodePath("../PauseMenu")
+player_hud = NodePath("../Player_HUD")
+
+[node name="Player_HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_huuut")
+default_hint_icon = ExtResource("4_e8ljd")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_70i5s")]
+visible = false
+
+[node name="Blocks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.75162)
+
+[node name="Block1" parent="Blocks" instance=ExtResource("6_vry1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="Block2" parent="Blocks" instance=ExtResource("6_vry1d")]
+transform = Transform3D(0.83686, -0.547417, 0, 0.547417, 0.83686, 0, 0, 0, 1, -1.6173, 3, 0)
+
+[node name="Block3" parent="Blocks" instance=ExtResource("6_vry1d")]
+transform = Transform3D(0.974511, 0.224339, 0, -0.224339, 0.974511, 0, 0, 0, 1, 0, 4.27578, 0)
+
+[node name="Block4" parent="Blocks" instance=ExtResource("6_vry1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07863, 4.28574, 0)
+
+[node name="InteractBlocks" type="Node3D" parent="Blocks"]
+
+[node name="FocusUnfocusBox" parent="Blocks/InteractBlocks" instance=ExtResource("7_yhwsj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95573, 1.41026, 11.4075)
+visible = false
+
+[node name="Coins" type="Node3D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("8_67dgu")]
+transform = Transform3D(-4.38617e-08, 1.00344, 0, -1.00344, -4.38617e-08, 0, 0, 0, 1.00344, 0, 1, 5.0013)
+
+[node name="Level Elements" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level Elements"]
+transform = Transform3D(1, 0, 0, 0, 0.664357, 0.747415, 0, -0.747415, 0.664357, 0, 9.89449, 3.61327)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level Elements"]
+environment = ExtResource("9_38ly8")
+
+[node name="CoinTotal" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -73.0
+offset_bottom = 72.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.992157, 0.815686, 0.0901961, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="back_to_main_pressed" from="PauseMenu" to="." method="_on_pause_menu_back_to_main_pressed"]
