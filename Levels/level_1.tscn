@@ -21,7 +21,6 @@ pause_menu = NodePath("../PauseMenu")
 player_hud = NodePath("../Player_HUD")
 
 [node name="Player_HUD" type="Control" parent="." node_paths=PackedStringArray("player")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -74,5 +73,18 @@ shadow_enabled = true
 environment = ExtResource("4_m2qvh")
 
 [node name="LevelModel" parent="Level Elements" instance=ExtResource("5_pjbpk")]
+
+[node name="CoinTotal" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -73.0
+offset_bottom = 72.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.992157, 0.815686, 0.0901961, 1)
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
 
 [connection signal="back_to_main_pressed" from="PauseMenu" to="." method="_on_pause_menu_back_to_main_pressed"]

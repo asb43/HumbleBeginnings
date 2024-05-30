@@ -6,6 +6,9 @@ extends CharacterBody3D
 @onready var camera = $Camera_Controller
 @onready var animation_player = $AnimationPlayer
 @onready var pause_menu_get = $"../PauseMenu"
+@onready var coinsLabel = $"../CoinTotal"
+
+var coins = 0
 
 ## Reference to Pause menu node
 @export var pause_menu : NodePath
@@ -37,7 +40,7 @@ func _ready() -> void:
 	else:
 		print("Player has no reference to pause menu.")
 
-
+	coinsLabel.text = "Coins: " + str(coins)
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -98,3 +101,6 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+func increment_coin_count():
+	coins += 1
+	coinsLabel.text = "Coins: " + str(coins)
