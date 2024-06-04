@@ -3,7 +3,7 @@ extends Interactor3D
 ## A specialized class tailored for [CharacterBody3D], it simplifies the process of creating a player character.
 class_name CharacterBody3DInteractor
 
-@onready var coin_label = $"/root/Level2/CoinTotal"
+var coin_label: Label
 var coin_count = 0
 
 ## The name of the input action to be used to interact with [Interactable3D]. [br]
@@ -34,7 +34,9 @@ var cached_closest: Interactable3D
 var cached_raycasted: Interactable3D
 
 func _ready() -> void:
-	coin_label.text = "Coins: " + str(coin_count)
+	coin_label = get_tree().root.find_child("CoinTotal", true, false) as Label
+	if coin_label:
+		coin_label.text = "Coins: " + str(coin_count)
 
 func increment_coin_count():
 	coin_count += 1

@@ -11,10 +11,10 @@ radius = 0.3
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_imbj4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["Coins"]]
 shape = SubResource("CylinderShape3D_ods0b")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["Coins"]]
 transform = Transform3D(-2.70382e-08, -3.23237e-08, -0.624873, -2.70382e-08, 0.739481, -2.73141e-08, 0.618563, 3.23238e-08, -2.73141e-08, 0, 0, -0.00324115)
 mesh = ExtResource("2_ghwu6")
 skeleton = NodePath("../CollisionShape3D")
